@@ -10,7 +10,7 @@ namespace TechSpecChecking
             Console.Clear();
             Console.OutputEncoding = Encoding.UTF8;
 
-            var filePath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\ТЗ шаблон.docx";
+            var filePath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\TestDocs\\КП-21 Антонов Євгеній ТЗ на перевірку.pdf";
 
             var readerFactory = new ReaderFactory(filePath);
             var reader = readerFactory.GetReader();

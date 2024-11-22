@@ -13,8 +13,6 @@ namespace TechSpecChecking.Files.Readers
 
         public void ReadFile()
         {
-            System.Console.WriteLine("Reading txt...");
-
             using (var reader = new StreamReader(_filePath))
             {
                 string line;
