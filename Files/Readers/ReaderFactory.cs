@@ -23,6 +23,9 @@ namespace TechSpecChecking.Files.Readers
 
         public IReader GetReader()
         {
+            if (!File.Exists(_filePath))
+                throw new FileNotFoundException("File not found.", _filePath);
+
             var fileExtension = GetExtension();
 
             return fileExtension switch

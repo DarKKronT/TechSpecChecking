@@ -5,7 +5,7 @@ namespace TechSpecChecking.Files.Readers
     public sealed class TxtReader : IReader
     {
         private readonly string _filePath;
-        private readonly StringBuilder _fileText = new StringBuilder();
+        private StringBuilder _fileText = new StringBuilder();
 
         public TxtReader(string filePath) => _filePath = filePath;
 
