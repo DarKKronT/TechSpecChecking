@@ -2,6 +2,7 @@ namespace Files.Sections
 {
     public sealed class RequiredSections
     {
+        public const string ContentSectionTitle = "Зміст";
         public const string FirstSectionTitle = "Найменування та галузь застосування";
         public const string SecondSectionTitle = "Підстави для розроблення";
         public const string ThirdSectionTitle = "Призначення розробки";

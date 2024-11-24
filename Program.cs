@@ -1,6 +1,8 @@
 ﻿using System.Text;
 using TechSpecChecking.Files.Readers;
 using System.Text.RegularExpressions;
+using Files.Sections;
+using Files.Sections.Creators;
 
 namespace TechSpecChecking
 {
@@ -12,7 +14,8 @@ namespace TechSpecChecking
             Console.OutputEncoding = Encoding.UTF8;
 
             //var filePath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\TestDocs\\КП-21 Антонов Євгеній ТЗ на перевірку.pdf";
-            var filePath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\TestDocs\\ТЗ шаблон.docx";
+            //var filePath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\TestDocs\\ТЗ шаблон.docx";
+            var filePath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\TestDocs\\КП-21 Антонов Євгеній ТЗ на перевірку_removed.pdf";
 
             var readerFactory = new ReaderFactory(filePath);
             var reader = readerFactory.GetReader();
@@ -20,6 +23,19 @@ namespace TechSpecChecking
             reader.ReadFile();
             var text = reader.FileText;
 
+
+
+            var contentCreator = new ContentCreator();
+            var content = contentCreator.GetContent(text);
+            // System.Console.WriteLine(content.Title);
+            // System.Console.WriteLine(content.Text);
+
+            //System.Console.WriteLine(contentCreator.GetTextAfterContent(text));
+
+
+
+            var sectionCreator = new SectionCreator();
+            var sections = sectionCreator.GetSections(text);
             //System.Console.WriteLine(text);
 
 
@@ -30,17 +46,17 @@ namespace TechSpecChecking
             // Перелік розділів, які повинні бути в технічному завданні
             string[] requiredSections =
             {
-                "Найменування та галузь застосування",
-                "Підстави для розроблення",
-                "Призначення розробки",
-                "Технічні вимоги",
-                "Вимоги до проєктної документації",
-                "Етапи розроблення",
+                RequiredSections.FirstSectionTitle,
+                RequiredSections.SecondSectionTitle,
+                RequiredSections.ThirdSectionTitle,
+                RequiredSections.FourthSectionTitle,
+                RequiredSections.FifthSectionTitle,
+                RequiredSections.SixthSectionTitle
             };
 
-            Test1(text, requiredSections);
-            System.Console.WriteLine("====================");
-            Test2(text, requiredSections);
+            // Test1(text, requiredSections);
+            // System.Console.WriteLine("====================");
+            // Test2(text, requiredSections);
         }
 
         private static void Test1(string text, string[] requiredSections)
