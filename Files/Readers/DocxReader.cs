@@ -17,7 +17,16 @@ namespace TechSpecChecking.Files.Readers
             using (var wordDoc = WordprocessingDocument.Open(_filePath, false))
             {
                 var body = wordDoc.MainDocumentPart.Document.Body;
-                _fileText = string.Join("\n", body.Elements<Paragraph>().Select(p => p.InnerText));
+
+                var paragraphsText = body.Elements<Paragraph>().Select(p => p.InnerText);
+
+                var tablesText = body.Elements<Table>()
+                                     .SelectMany(table =>
+                                         table.Elements<TableRow>().Select(row =>
+                                             string.Join("\t", row.Elements<TableCell>().Select(cell => cell.InnerText))
+                                         ));
+
+                _fileText = string.Join("\n", paragraphsText.Concat(tablesText));
             }
         }
     }

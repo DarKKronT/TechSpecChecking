@@ -58,7 +58,7 @@ namespace Files.Sections.Creators
                 var title = _requiredSections[i].ToLower();
                 var text = textAfterContent.Substring(startIndex, endIndex - startIndex).Replace(_requiredSections[i].ToLower(), string.Empty);
 
-                sections.Add(new SimpleSection(title.Trim(), text.Trim()));
+                sections.Add(new SimpleSection(title.Trim(), text.Substring(0, text.Length - 2).Trim()));
             }
 
             return sections;

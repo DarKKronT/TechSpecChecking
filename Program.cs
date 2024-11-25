@@ -38,14 +38,14 @@ namespace TechSpecChecking
             var sectionCreator = new SectionCreator();
             var sections = sectionCreator.GetSections(textAfterContent);
 
-            System.Console.WriteLine(sections.ToArray()[4].Title);
-            System.Console.WriteLine("===============");
-            System.Console.WriteLine(sections.ToArray()[4].Text);
-            
             // foreach (var section in sections)
             // {
             //     System.Console.WriteLine(section.Title);
-            //     //System.Console.WriteLine(section.Text);
+            //     System.Console.WriteLine("=========================");
+            //     System.Console.WriteLine(section.Text);
+            //     System.Console.WriteLine("=========================");
+            //     System.Console.WriteLine("=========================");
+            //     System.Console.WriteLine("=========================");
             // }
         }
 
