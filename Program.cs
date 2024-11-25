@@ -27,36 +27,26 @@ namespace TechSpecChecking
 
             var contentCreator = new ContentCreator();
             var content = contentCreator.GetContent(text);
+            var textAfterContent = contentCreator.GetTextAfterContent(text);
+
             // System.Console.WriteLine(content.Title);
             // System.Console.WriteLine(content.Text);
-
             //System.Console.WriteLine(contentCreator.GetTextAfterContent(text));
 
 
 
             var sectionCreator = new SectionCreator();
-            var sections = sectionCreator.GetSections(text);
-            //System.Console.WriteLine(text);
+            var sections = sectionCreator.GetSections(textAfterContent);
 
-
-
-
-
-
-            // Перелік розділів, які повинні бути в технічному завданні
-            string[] requiredSections =
-            {
-                RequiredSections.FirstSectionTitle,
-                RequiredSections.SecondSectionTitle,
-                RequiredSections.ThirdSectionTitle,
-                RequiredSections.FourthSectionTitle,
-                RequiredSections.FifthSectionTitle,
-                RequiredSections.SixthSectionTitle
-            };
-
-            // Test1(text, requiredSections);
-            // System.Console.WriteLine("====================");
-            // Test2(text, requiredSections);
+            System.Console.WriteLine(sections.ToArray()[4].Title);
+            System.Console.WriteLine("===============");
+            System.Console.WriteLine(sections.ToArray()[4].Text);
+            
+            // foreach (var section in sections)
+            // {
+            //     System.Console.WriteLine(section.Title);
+            //     //System.Console.WriteLine(section.Text);
+            // }
         }
 
         private static void Test1(string text, string[] requiredSections)
