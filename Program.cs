@@ -5,6 +5,8 @@ using Files.Sections;
 using Files.Sections.Creators;
 using TechSpecChecking.Text.Analisators.TextAnalisators;
 using TechSpecChecking.Text.Analisators.SectionAnalisators;
+using TechSpecChecking.Text.Analisators.SectionAnalisators.FirstSectionAnalisators;
+using TechSpecChecking.Text.Analisators;
 
 namespace TechSpecChecking
 {
@@ -59,33 +61,35 @@ namespace TechSpecChecking
 
             var textAnalisators = new ITextAnalisator[]
             {
-                new SectionsPresenceAnaliator()
+                new SectionsPresenceAnalisator(),
             };
 
             foreach (var analisator in textAnalisators)
             {
-                if (analisator.Analyze(text, out string error) == false)
-                {
-                    System.Console.WriteLine($"{analisator.Name} has finished its work unsuccessfully with error:");
-                    System.Console.WriteLine(error);
-                    System.Console.WriteLine();
+                var result = analisator.Analyze(text, out string textAnalisatorError);
+                PrintAnalisatorResult(analisator, result, textAnalisatorError);
+            }
 
-                    continue;
-                }
-                
-                System.Console.WriteLine($"{analisator.Name} has finished its work successfully.");
+
+
+            var firstSectionSubsectionPresenceAnalisator = new FirstSectionSubsectionPresenceAnalisator();
+            var firstSectionSubsectionPresenceAnalisatorResult = firstSectionSubsectionPresenceAnalisator.Analyze(sections.ToArray()[0], out string sectionAnalisatorError1);
+            PrintAnalisatorResult(firstSectionSubsectionPresenceAnalisator, firstSectionSubsectionPresenceAnalisatorResult, sectionAnalisatorError1);
+        }
+
+        private static void PrintAnalisatorResult(IAnalisator analisator, bool result, string error)
+        {
+            if (result == false)
+            {
+                System.Console.WriteLine($"{analisator.Name} has finished its work unsuccessfully with error:");
+                System.Console.WriteLine(error);
                 System.Console.WriteLine();
+
+                return;
             }
 
-            var sectionAnalisators = new ISectionAnalisator[]
-            {
-
-            };
-
-            foreach (var analisator in sectionAnalisators)
-            {
-                
-            }
+            System.Console.WriteLine($"{analisator.Name} has finished its work successfully.");
+            System.Console.WriteLine();
         }
     }
 }

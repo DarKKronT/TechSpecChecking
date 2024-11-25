@@ -1,5 +1,3 @@
-using System.Text;
-
 namespace Files.Sections.Creators
 {
     public sealed class SectionCreator

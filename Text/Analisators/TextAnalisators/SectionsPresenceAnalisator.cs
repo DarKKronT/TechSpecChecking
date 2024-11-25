@@ -2,7 +2,7 @@ using Files.Sections;
 
 namespace TechSpecChecking.Text.Analisators.TextAnalisators
 {
-    public class SectionsPresenceAnaliator : ITextAnalisator
+    public sealed class SectionsPresenceAnalisator : ITextAnalisator
     {
         public string Name => "Section presence analisator";
 
