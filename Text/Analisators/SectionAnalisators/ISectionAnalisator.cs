@@ -1,6 +1,6 @@
 using Files.Sections;
 
-namespace TechSpecChecking.Text.Analisators
+namespace TechSpecChecking.Text.Analisators.SectionAnalisators
 {
     public interface ISectionAnalisator
     {
