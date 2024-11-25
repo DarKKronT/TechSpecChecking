@@ -7,6 +7,7 @@ using TechSpecChecking.Text.Analisators.TextAnalisators;
 using TechSpecChecking.Text.Analisators.SectionAnalisators;
 using TechSpecChecking.Text.Analisators.SectionAnalisators.FirstSectionAnalisators;
 using TechSpecChecking.Text.Analisators;
+using TechSpecChecking.Text.Analisators.SectionAnalisators.SecondSectionAnalisators;
 
 namespace TechSpecChecking
 {
@@ -75,6 +76,15 @@ namespace TechSpecChecking
             var firstSectionSubsectionPresenceAnalisator = new FirstSectionSubsectionPresenceAnalisator();
             var firstSectionSubsectionPresenceAnalisatorResult = firstSectionSubsectionPresenceAnalisator.Analyze(sections.ToArray()[0], out string sectionAnalisatorError1);
             PrintAnalisatorResult(firstSectionSubsectionPresenceAnalisator, firstSectionSubsectionPresenceAnalisatorResult, sectionAnalisatorError1);
+
+            var secondSectionTitlePresenceInTextAnalisator = new SecondSectionTitlePresenceInTextAnalisator();
+            var secondSectionTitlePresenceInTextAnalisatorResult = secondSectionTitlePresenceInTextAnalisator.Analyze(sections.ToArray()[1], out string sectionAnalisatorError2);
+            PrintAnalisatorResult(secondSectionTitlePresenceInTextAnalisator, secondSectionTitlePresenceInTextAnalisatorResult, sectionAnalisatorError2);
+
+            /*
+            https://habr.com/ru/articles/341148/
+            https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5_%D0%9B%D0%B5%D0%B2%D0%B5%D0%BD%D1%88%D1%82%D0%B5%D0%B9%D0%BD%D0%B0
+            */
         }
 
         private static void PrintAnalisatorResult(IAnalisator analisator, bool result, string error)

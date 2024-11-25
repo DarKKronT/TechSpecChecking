@@ -15,13 +15,13 @@ namespace TechSpecChecking.Text.Analisators.SectionAnalisators.FirstSectionAnali
             
             if (section.Text.ToLower().Contains(FirstSubsectionTitle.ToLower()) == false)
             {
-                error = $"{RequiredSections.FirstSectionTitle} does not contain subsection title {FirstSubsectionTitle}";
+                error = $"{RequiredSections.FirstSectionTitle} does not contain subsection title {FirstSubsectionTitle}.";
                 return false;
             }
 
             if (section.Text.ToLower().Contains(SecondSubsectionTitle.ToLower()) == false)
             {
-                error = $"{RequiredSections.FirstSectionTitle} does not contain subsection title {SecondSubsectionTitle}";
+                error = $"{RequiredSections.FirstSectionTitle} does not contain subsection title {SecondSubsectionTitle}.";
                 return false;
             }
 
