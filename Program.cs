@@ -68,9 +68,13 @@ namespace TechSpecChecking
                 {
                     System.Console.WriteLine($"{analisator.Name} has finished its work unsuccessfully with error:");
                     System.Console.WriteLine(error);
+                    System.Console.WriteLine();
+
+                    continue;
                 }
                 
                 System.Console.WriteLine($"{analisator.Name} has finished its work successfully.");
+                System.Console.WriteLine();
             }
 
             var sectionAnalisators = new ISectionAnalisator[]

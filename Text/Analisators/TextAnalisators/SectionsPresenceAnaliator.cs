@@ -9,7 +9,6 @@ namespace TechSpecChecking.Text.Analisators.TextAnalisators
         public bool Analyze(string text, out string error)
         {
             error = string.Empty;
-
             text = text.ToLower();
 
             foreach (var sectionTitle in RequiredSections.MainSections)
