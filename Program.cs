@@ -60,6 +60,9 @@ namespace TechSpecChecking
             sections
             */
 
+            System.Console.WriteLine("=== TEXT ANALISATORS ===");
+            System.Console.WriteLine();
+
             var textAnalisators = new ITextAnalisator[]
             {
                 new SectionsPresenceAnalisator(),
@@ -71,14 +74,23 @@ namespace TechSpecChecking
                 PrintAnalisatorResult(analisator, result, textAnalisatorError);
             }
 
+            System.Console.WriteLine();
 
+
+
+            System.Console.WriteLine("=== SECTION ANALISATORS ===");
+            System.Console.WriteLine();
 
             var firstSectionSubsectionPresenceAnalisator = new FirstSectionSubsectionPresenceAnalisator();
             var firstSectionSubsectionPresenceAnalisatorResult = firstSectionSubsectionPresenceAnalisator.Analyze(sections.ToArray()[0], out string sectionAnalisatorError1);
             PrintAnalisatorResult(firstSectionSubsectionPresenceAnalisator, firstSectionSubsectionPresenceAnalisatorResult, sectionAnalisatorError1);
 
+            var firstSectionLengthAnalisator = new FirstSectionLengthAnalisator();
+            var firstSectionLengthAnalisatorResult = firstSectionLengthAnalisator.Analyze(sections.ToArray()[0], out string sectionAnalisatorError2);
+            PrintAnalisatorResult(firstSectionLengthAnalisator, firstSectionLengthAnalisatorResult, sectionAnalisatorError2);
+
             var secondSectionTitlePresenceInTextAnalisator = new SecondSectionTitlePresenceInTextAnalisator();
-            var secondSectionTitlePresenceInTextAnalisatorResult = secondSectionTitlePresenceInTextAnalisator.Analyze(sections.ToArray()[1], out string sectionAnalisatorError2);
+            var secondSectionTitlePresenceInTextAnalisatorResult = secondSectionTitlePresenceInTextAnalisator.Analyze(sections.ToArray()[1], out string sectionAnalisatorError3);
             PrintAnalisatorResult(secondSectionTitlePresenceInTextAnalisator, secondSectionTitlePresenceInTextAnalisatorResult, sectionAnalisatorError2);
 
             /*
