@@ -9,5 +9,15 @@ namespace Files.Sections
         public const string FourthSectionTitle = "Технічні вимоги";
         public const string FifthSectionTitle = "Вимоги до проєктної документації";
         public const string SixthSectionTitle = "Етапи розроблення";
+
+        public static readonly string[] MainSections =
+        {
+            FirstSectionTitle,
+            SecondSectionTitle,
+            ThirdSectionTitle,
+            FourthSectionTitle,
+            FifthSectionTitle,
+            SixthSectionTitle
+        };
     }
 }

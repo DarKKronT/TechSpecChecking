@@ -3,6 +3,8 @@ using TechSpecChecking.Files.Readers;
 using System.Text.RegularExpressions;
 using Files.Sections;
 using Files.Sections.Creators;
+using TechSpecChecking.Text.Analisators.TextAnalisators;
+using TechSpecChecking.Text.Analisators.SectionAnalisators;
 
 namespace TechSpecChecking
 {
@@ -47,48 +49,38 @@ namespace TechSpecChecking
             //     System.Console.WriteLine("=========================");
             //     System.Console.WriteLine("=========================");
             // }
-        }
 
-        private static void Test1(string text, string[] requiredSections)
-        {
-            // Для кожного розділу перевіряємо наявність
-            foreach (string section in requiredSections)
-            {
-                string pattern = $@"\b{Regex.Escape(section)}\b";  // Шукаємо точний збіг назви розділу
-                bool found = Regex.IsMatch(text, pattern, RegexOptions.IgnoreCase);
-                Console.WriteLine(found ? $"{section} знайдено" : $"{section} не знайдено");
-            }
-        }
+            /*
+            text
 
-        private static void Test2(string text, string[] requiredSections)
-        {
-            foreach (string section in requiredSections)
+            content
+            sections
+            */
+
+            var textAnalisators = new ITextAnalisator[]
             {
-                // Шукаємо заголовок розділу
-                string pattern = $@"\b{Regex.Escape(section)}\b";
-                Match match = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
-                MatchCollection matchCollection = Regex.Matches(text, pattern, RegexOptions.IgnoreCase);
+                new SectionsPresenceAnaliator()
+            };
+
+            foreach (var analisator in textAnalisators)
+            {
+                if (analisator.Analyze(text, out string error) == false)
+                {
+                    System.Console.WriteLine($"{analisator.Name} has finished its work unsuccessfully with error:");
+                    System.Console.WriteLine(error);
+                }
                 
-                if (match.Success)
-                {
-                    // Знаходимо текст після заголовка
-                    int startIndex = match.Index + match.Length;
-                    string sectionText = text.Substring(startIndex).Split('\n')[0];  // Перша строка після заголовка
-                    
-                    // Перевіряємо, чи текст не порожній
-                    if (string.IsNullOrWhiteSpace(sectionText))
-                    {
-                        Console.WriteLine($"{section} заповнений неповністю або порожній.");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{section} заповнений.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"{section} не знайдено.");
-                }
+                System.Console.WriteLine($"{analisator.Name} has finished its work successfully.");
+            }
+
+            var sectionAnalisators = new ISectionAnalisator[]
+            {
+
+            };
+
+            foreach (var analisator in sectionAnalisators)
+            {
+                
             }
         }
     }
