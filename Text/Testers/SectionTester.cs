@@ -42,6 +42,7 @@ namespace TechSpecChecking.Text.Testers
                 (_sections[SecondSectionIndex], new SecondSectionTitlePresenceInTextAnalisator()),
             };
 
+            System.Console.WriteLine();
             System.Console.WriteLine("=== SECTION ANALISATORS ===");
             System.Console.WriteLine();
 
@@ -49,7 +50,7 @@ namespace TechSpecChecking.Text.Testers
             {
                 var result = analisator.Analyze(section, out string error);
                 PrintAnalisatorResult(analisator, result, error);
-            }
+            }            
         }
     }
 }

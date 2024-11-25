@@ -10,12 +10,14 @@ namespace TechSpecChecking.Text.Testers
 
         public override void Test()
         {
+            System.Console.WriteLine();
             System.Console.WriteLine("=== TEXT ANALISATORS ===");
             System.Console.WriteLine();
 
             var textAnalisators = new ITextAnalisator[]
             {
                 new SectionsPresenceAnalisator(),
+                new SectionsOrderAnalisator(),
             };
 
             foreach (var analisator in textAnalisators)
@@ -23,8 +25,6 @@ namespace TechSpecChecking.Text.Testers
                 var result = analisator.Analyze(_text, out string textAnalisatorError);
                 PrintAnalisatorResult(analisator, result, textAnalisatorError);
             }
-
-            System.Console.WriteLine();
         }
     }
 }

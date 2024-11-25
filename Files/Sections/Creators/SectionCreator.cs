@@ -31,6 +31,9 @@ namespace Files.Sections.Creators
                 {
                     var index = textAfterContent.IndexOf(_requiredSections[lastIndex].ToLower());
 
+                    if (index == -1)
+                        throw new InvalidOperationException($"Required section '{_requiredSections[lastIndex]}' is missing from the text.");
+
                     var lastTitle = _requiredSections[i].ToLower();
                     var lastText = textAfterContent.Substring(index).Replace(_requiredSections[lastIndex].ToLower(), string.Empty);;
 
@@ -52,6 +55,9 @@ namespace Files.Sections.Creators
                     System.Console.WriteLine($"Text does not contain required section {_requiredSections[i + 1]}");
                     break;
                 }
+
+                if (endIndex - startIndex < 0)
+                    throw new InvalidOperationException($"Invalid section order: {_requiredSections[i]} comes after {_requiredSections[i + 1]}.");
 
                 var title = _requiredSections[i].ToLower();
                 var text = textAfterContent.Substring(startIndex, endIndex - startIndex).Replace(_requiredSections[i].ToLower(), string.Empty);
