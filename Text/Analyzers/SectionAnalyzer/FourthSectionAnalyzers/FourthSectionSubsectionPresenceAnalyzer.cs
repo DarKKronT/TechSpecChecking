@@ -13,6 +13,7 @@ namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.FourthSectionAnalyzer
         public bool Analyze(ISection section, out string error)
         {
             error = string.Empty;
+            
             if (section.Text.ToLower().Contains(FirstSubsectionTitle.ToLower()) == false)
             {
                 error = $"{RequiredSections.FourthSectionTitle} does not contain subsection title {FirstSubsectionTitle}.";

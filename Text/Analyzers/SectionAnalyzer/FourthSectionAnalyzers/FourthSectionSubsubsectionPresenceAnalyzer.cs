@@ -4,37 +4,38 @@ namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.FourthSectionAnalyzer
 {
     public sealed class FourthSectionSubsubsectionPresenceAnalyzer : ISectionAnalyzer
     {
-        private const string FirstSubsectionTitle = "Загальний опис";
-        private const string SecondSubsectionTitle = "Функціональні вимоги";
-        private const string ThirdSubsectionTitle = "Інтерфейс користувача";
-        private const string FourthSubsectionTitle = "Нефункціональні вимоги";
+        private const string FirstSubsubsectionTitle = "Загальний опис";
+        private const string SecondSubsubsectionTitle = "Функціональні вимоги";
+        private const string ThirdSubsubsectionTitle = "Інтерфейс користувача";
+        private const string FourthSubsubsectionTitle = "Нефункціональні вимоги";
 
         public string Name => "Fourth section subsubsection presence analyzer";
 
         public bool Analyze(ISection section, out string error)
         {
             error = string.Empty;
-            if (section.Text.ToLower().Contains(FirstSubsectionTitle.ToLower()) == false)
+            
+            if (section.Text.ToLower().Contains(FirstSubsubsectionTitle.ToLower()) == false)
             {
-                error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {FirstSubsectionTitle}.";
+                error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {FirstSubsubsectionTitle}.";
                 return false;
             }
 
-            if (section.Text.ToLower().Contains(SecondSubsectionTitle.ToLower()) == false)
+            if (section.Text.ToLower().Contains(SecondSubsubsectionTitle.ToLower()) == false)
             {
-                error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {SecondSubsectionTitle}.";
+                error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {SecondSubsubsectionTitle}.";
                 return false;
             }
 
-            if (section.Text.ToLower().Contains(ThirdSubsectionTitle.ToLower()) == false)
+            if (section.Text.ToLower().Contains(ThirdSubsubsectionTitle.ToLower()) == false)
             {
-                error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {ThirdSubsectionTitle}.";
+                error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {ThirdSubsubsectionTitle}.";
                 return false;
             }     
 
-            if (section.Text.ToLower().Contains(FourthSubsectionTitle.ToLower()) == false)
+            if (section.Text.ToLower().Contains(FourthSubsubsectionTitle.ToLower()) == false)
             {
-                error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {FourthSubsectionTitle}.";
+                error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {FourthSubsubsectionTitle}.";
                 return false;
             }         
 
