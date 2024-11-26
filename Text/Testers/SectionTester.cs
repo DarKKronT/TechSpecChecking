@@ -39,8 +39,11 @@ namespace TechSpecChecking.Text.Testers
             {
                 (_sections[FirstSectionIndex], new FirstSectionSubsectionPresenceAnalisator()),
                 (_sections[FirstSectionIndex], new FirstSectionLengthAnalisator()),
+
                 (_sections[SecondSectionIndex], new SecondSectionTitlePresenceInTextAnalisator()),
                 (_sections[SecondSectionIndex], new SecondSectionLengthAnalisator()),
+
+                (_sections[ThirdSectionIndex], new ThirdSectionLengthAnalisator()),
             };
 
             System.Console.WriteLine();
