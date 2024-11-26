@@ -48,6 +48,7 @@ namespace TechSpecChecking.Text.Testers
                 (_sections[ThirdSectionIndex], new ThirdSectionLengthAnalisator()),
 
                 (_sections[FourthSectionIndex], new FourthSectionSubsectionPresenceAnalisator()),
+                (_sections[FourthSectionIndex], new FourthSectionSubsubsectionPresenceAnalisator()),
             };
 
             System.Console.WriteLine();
