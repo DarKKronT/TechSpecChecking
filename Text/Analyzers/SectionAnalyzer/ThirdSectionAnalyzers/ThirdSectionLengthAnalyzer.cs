@@ -1,12 +1,12 @@
 using Files.Sections;
 
-namespace TechSpecChecking.Text.Analisators.SectionAnalisators.ThirdSectionAnalisators
+namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.ThirdSectionAnalyzers
 {
-    public sealed class ThirdSectionLengthAnalisator : ISectionAnalisator
+    public sealed class ThirdSectionLengthAnalyzer : ISectionAnalyzer
     {
         private const byte MinSectionLength = 5;
 
-        public string Name => "Third section length analisator";
+        public string Name => "Third section length analyzer";
 
         public bool Analyze(ISection section, out string error)
         {

@@ -1,13 +1,13 @@
 using Files.Sections;
 
-namespace TechSpecChecking.Text.Analisators.SectionAnalisators.FirstSectionAnalisators
+namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.FirstSectionAnalyzers
 {
-    public sealed class FirstSectionSubsectionPresenceAnalisator : ISectionAnalisator
+    public sealed class FirstSectionSubsectionPresenceAnalyzer : ISectionAnalyzer
     {
         private const string FirstSubsectionTitle = "Найменування";
         private const string SecondSubsectionTitle = "Галузь застосування";
 
-        public string Name => "First section subsection presence analisator";
+        public string Name => "First section subsection presence analyzer";
 
         public bool Analyze(ISection section, out string error)
         {

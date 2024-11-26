@@ -1,9 +1,10 @@
 using Files.Sections;
-using TechSpecChecking.Text.Analisators.SectionAnalisators;
-using TechSpecChecking.Text.Analisators.SectionAnalisators.FirstSectionAnalisators;
-using TechSpecChecking.Text.Analisators.SectionAnalisators.SecondSectionAnalisators;
-using TechSpecChecking.Text.Analisators.SectionAnalisators.ThirdSectionAnalisators;
-using TechSpecChecking.Text.Analisators.SectionAnalisators.FourthSectionAnalisators;
+using TechSpecChecking.Text.Analyzers.SectionAnalyzers;
+using TechSpecChecking.Text.Analyzers.SectionAnalyzers.FirstSectionAnalyzers;
+using TechSpecChecking.Text.Analyzers.SectionAnalyzers.SecondSectionAnalyzers;
+using TechSpecChecking.Text.Analyzers.SectionAnalyzers.ThirdSectionAnalyzers;
+using TechSpecChecking.Text.Analyzers.SectionAnalyzers.FourthSectionAnalyzers;
+using TechSpecChecking.Text.Analyzers.SectionAnalyzers.FirstSectionAnalyzer;
 
 namespace TechSpecChecking.Text.Testers
 {
@@ -37,28 +38,28 @@ namespace TechSpecChecking.Text.Testers
             if (_sections.Length != Indexes.Length)
                 throw new InvalidOperationException("Number of sections does not match the number of indexes.");
 
-            var analisators = new List<(ISection section, ISectionAnalisator analisator)>
+            var analyzers = new List<(ISection section, ISectionAnalyzer analyzer)>
             {
-                (_sections[FirstSectionIndex], new FirstSectionSubsectionPresenceAnalisator()),
-                (_sections[FirstSectionIndex], new FirstSectionLengthAnalisator()),
+                (_sections[FirstSectionIndex], new FirstSectionSubsectionPresenceAnalyzer()),
+                (_sections[FirstSectionIndex], new FirstSectionLengthAnalyzer()),
 
-                (_sections[SecondSectionIndex], new SecondSectionTitlePresenceInTextAnalisator()),
-                (_sections[SecondSectionIndex], new SecondSectionLengthAnalisator()),
+                (_sections[SecondSectionIndex], new SecondSectionTitlePresenceInTextAnalyzer()),
+                (_sections[SecondSectionIndex], new SecondSectionLengthAnalyzer()),
 
-                (_sections[ThirdSectionIndex], new ThirdSectionLengthAnalisator()),
+                (_sections[ThirdSectionIndex], new ThirdSectionLengthAnalyzer()),
 
-                (_sections[FourthSectionIndex], new FourthSectionSubsectionPresenceAnalisator()),
-                (_sections[FourthSectionIndex], new FourthSectionSubsubsectionPresenceAnalisator()),
+                (_sections[FourthSectionIndex], new FourthSectionSubsectionPresenceAnalyzer()),
+                (_sections[FourthSectionIndex], new FourthSectionSubsubsectionPresenceAnalyzer()),
             };
 
             System.Console.WriteLine();
-            System.Console.WriteLine("=== SECTION ANALISATORS ===");
+            System.Console.WriteLine("=== SECTION ANALYZERS ===");
             System.Console.WriteLine();
 
-            foreach (var (section, analisator) in analisators)
+            foreach (var (section, analyzer) in analyzers)
             {
-                var result = analisator.Analyze(section, out string error);
-                PrintAnalisatorResult(analisator, result, error);
+                var result = analyzer.Analyze(section, out string error);
+                PrintAnalyzerResult(analyzer, result, error);
             }            
         }
     }

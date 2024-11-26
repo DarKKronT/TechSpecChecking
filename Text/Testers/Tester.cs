@@ -1,4 +1,4 @@
-using TechSpecChecking.Text.Analisators;
+using TechSpecChecking.Text.Analyzers;
 
 namespace TechSpecChecking.Text.Testers
 {
@@ -6,18 +6,18 @@ namespace TechSpecChecking.Text.Testers
     {
         public abstract void Test();
 
-        protected void PrintAnalisatorResult(IAnalisator analisator, bool result, string error)
+        protected void PrintAnalyzerResult(IAnalyzer analyzer, bool result, string error)
         {
             if (result == false)
             {
-                System.Console.WriteLine($"{analisator.Name} has finished its work unsuccessfully with error:");
+                System.Console.WriteLine($"{analyzer.Name} has finished its work unsuccessfully with error:");
                 System.Console.WriteLine(error);
                 System.Console.WriteLine();
 
                 return;
             }
 
-            System.Console.WriteLine($"{analisator.Name} has finished its work successfully.");
+            System.Console.WriteLine($"{analyzer.Name} has finished its work successfully.");
             System.Console.WriteLine();
         }
     }

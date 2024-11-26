@@ -1,12 +1,12 @@
 using Files.Sections;
 
-namespace TechSpecChecking.Text.Analisators.SectionAnalisators.SecondSectionAnalisators
+namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.FirstSectionAnalyzer
 {
-    public sealed class SecondSectionLengthAnalisator : ISectionAnalisator
+    public sealed class FirstSectionLengthAnalyzer : ISectionAnalyzer
     {
         private const byte MinSectionLength = 5;
 
-        public string Name => "Second section length analisator";
+        public string Name => "First section length analyzer";
 
         public bool Analyze(ISection section, out string error)
         {
@@ -14,7 +14,7 @@ namespace TechSpecChecking.Text.Analisators.SectionAnalisators.SecondSectionAnal
 
             if (section.Text.Length < MinSectionLength)
             {
-                error = $"{RequiredSections.SecondSectionTitle} is empty.";
+                error = $"{RequiredSections.FirstSectionTitle} is empty.";
                 return false;
             }
 

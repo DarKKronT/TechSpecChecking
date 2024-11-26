@@ -1,12 +1,12 @@
 using Files.Sections;
 
-namespace TechSpecChecking.Text.Analisators.SectionAnalisators.SecondSectionAnalisators
+namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.SecondSectionAnalyzers
 {
-    public sealed class SecondSectionTitlePresenceInTextAnalisator : ISectionAnalisator
+    public sealed class SecondSectionTitlePresenceInTextAnalyzer : ISectionAnalyzer
     {
         private const string TitlePresenceInTextName = "Підставою для розроблення";
 
-        public string Name => "Second section title presence in text";
+        public string Name => "Second section title presence in text analyzer";
 
         public bool Analyze(ISection section, out string error)
         {

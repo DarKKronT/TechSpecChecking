@@ -1,4 +1,4 @@
-using TechSpecChecking.Text.Analisators.TextAnalisators;
+using TechSpecChecking.Text.Analyzers.TextAnalyzers;
 
 namespace TechSpecChecking.Text.Testers
 {
@@ -11,19 +11,19 @@ namespace TechSpecChecking.Text.Testers
         public override void Test()
         {
             System.Console.WriteLine();
-            System.Console.WriteLine("=== TEXT ANALISATORS ===");
+            System.Console.WriteLine("=== TEXT ANALYZERS ===");
             System.Console.WriteLine();
 
-            var textAnalisators = new ITextAnalisator[]
+            var textAnalyzers = new ITextAnalyzer[]
             {
-                new SectionsPresenceAnalisator(),
-                new SectionsOrderAnalisator(),
+                new SectionsPresenceAnalyzer(),
+                new SectionsOrderAnalyzer(),
             };
 
-            foreach (var analisator in textAnalisators)
+            foreach (var analyzer in textAnalyzers)
             {
-                var result = analisator.Analyze(_text, out string textAnalisatorError);
-                PrintAnalisatorResult(analisator, result, textAnalisatorError);
+                var result = analyzer.Analyze(_text, out string textAnalyzerError);
+                PrintAnalyzerResult(analyzer, result, textAnalyzerError);
             }
         }
     }

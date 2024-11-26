@@ -1,10 +1,10 @@
 using Files.Sections;
 
-namespace TechSpecChecking.Text.Analisators.TextAnalisators
+namespace TechSpecChecking.Text.Analyzers.TextAnalyzers
 {
-    public sealed class SectionsOrderAnalisator : ITextAnalisator
+    public sealed class SectionsOrderAnalyzer : ITextAnalyzer
     {
-        public string Name => "Sections order analisator";
+        public string Name => "Sections order analyzer";
 
         public bool Analyze(string text, out string error)
         {
