@@ -14,7 +14,7 @@ namespace TechSpecChecking.Text.Analisators.SectionAnalisators.SecondSectionAnal
 
             if (section.Text.Length < MinSectionLength)
             {
-                error = $"{RequiredSections.FirstSectionTitle} is empty.";
+                error = $"{RequiredSections.SecondSectionTitle} is empty.";
                 return false;
             }
 

@@ -14,7 +14,7 @@ namespace TechSpecChecking.Text.Analisators.SectionAnalisators.ThirdSectionAnali
 
             if (section.Text.Length < MinSectionLength)
             {
-                error = $"{RequiredSections.FirstSectionTitle} is empty.";
+                error = $"{RequiredSections.ThirdSectionTitle} is empty.";
                 return false;
             }
 

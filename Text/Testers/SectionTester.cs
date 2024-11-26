@@ -2,6 +2,8 @@ using Files.Sections;
 using TechSpecChecking.Text.Analisators.SectionAnalisators;
 using TechSpecChecking.Text.Analisators.SectionAnalisators.FirstSectionAnalisators;
 using TechSpecChecking.Text.Analisators.SectionAnalisators.SecondSectionAnalisators;
+using TechSpecChecking.Text.Analisators.SectionAnalisators.ThirdSectionAnalisators;
+using TechSpecChecking.Text.Analisators.SectionAnalisators.FourthSectionAnalisators;
 
 namespace TechSpecChecking.Text.Testers
 {
@@ -44,6 +46,8 @@ namespace TechSpecChecking.Text.Testers
                 (_sections[SecondSectionIndex], new SecondSectionLengthAnalisator()),
 
                 (_sections[ThirdSectionIndex], new ThirdSectionLengthAnalisator()),
+
+                (_sections[FourthSectionIndex], new FourthSectionSubsectionPresenceAnalisator()),
             };
 
             System.Console.WriteLine();
