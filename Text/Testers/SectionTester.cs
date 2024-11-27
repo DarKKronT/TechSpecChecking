@@ -4,6 +4,7 @@ using TechSpecChecking.Text.Analyzers.SectionAnalyzers.FirstSectionAnalyzers;
 using TechSpecChecking.Text.Analyzers.SectionAnalyzers.SecondSectionAnalyzers;
 using TechSpecChecking.Text.Analyzers.SectionAnalyzers.ThirdSectionAnalyzers;
 using TechSpecChecking.Text.Analyzers.SectionAnalyzers.FourthSectionAnalyzers;
+using TechSpecChecking.Text.Analyzers.SectionAnalyzers.FifthSectionAnalyzers;
 
 namespace TechSpecChecking.Text.Testers
 {
@@ -52,6 +53,8 @@ namespace TechSpecChecking.Text.Testers
                 (_sections[FourthSectionIndex], new FourthSectionFirstSubsectionContentAnalyzer()),
                 (_sections[FourthSectionIndex], new FourthSectionSecondSubsectionContentAnalyzer()),
                 (_sections[FourthSectionIndex], new FourthSectionThirdSubsectionContentAnalyzer()),
+
+                (_sections[FifthSectionIndex], new FifthSectionSubsectionPresenceAnalyzer()),
             };
 
             System.Console.WriteLine();
