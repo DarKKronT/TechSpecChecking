@@ -55,6 +55,7 @@ namespace TechSpecChecking.Text.Testers
                 (_sections[FourthSectionIndex], new FourthSectionThirdSubsectionContentAnalyzer()),
 
                 (_sections[FifthSectionIndex], new FifthSectionSubsectionPresenceAnalyzer()),
+                (_sections[FifthSectionIndex], new FifthSectionLengthAnalyzer()),
             };
 
             System.Console.WriteLine();
