@@ -12,14 +12,15 @@ namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.FirstSectionAnalyzers
         public bool Analyze(ISection section, out string error)
         {
             error = string.Empty;
+            var lowerSectionText = section.Text.ToLower();
             
-            if (section.Text.ToLower().Contains(FirstSubsectionTitle.ToLower()) == false)
+            if (lowerSectionText.ToLower().Contains(FirstSubsectionTitle.ToLower()) == false)
             {
                 error = $"{RequiredSections.FirstSectionTitle} does not contain subsection title {FirstSubsectionTitle}.";
                 return false;
             }
 
-            if (section.Text.ToLower().Contains(SecondSubsectionTitle.ToLower()) == false)
+            if (lowerSectionText.ToLower().Contains(SecondSubsectionTitle.ToLower()) == false)
             {
                 error = $"{RequiredSections.FirstSectionTitle} does not contain subsection title {SecondSubsectionTitle}.";
                 return false;

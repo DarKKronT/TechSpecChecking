@@ -14,26 +14,27 @@ namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.FourthSectionAnalyzer
         public bool Analyze(ISection section, out string error)
         {
             error = string.Empty;
+            var lowerSectionText = section.Text.ToLower();
             
-            if (section.Text.ToLower().Contains(FirstSubsubsectionTitle.ToLower()) == false)
+            if (lowerSectionText.ToLower().Contains(FirstSubsubsectionTitle.ToLower()) == false)
             {
                 error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {FirstSubsubsectionTitle}.";
                 return false;
             }
 
-            if (section.Text.ToLower().Contains(SecondSubsubsectionTitle.ToLower()) == false)
+            if (lowerSectionText.ToLower().Contains(SecondSubsubsectionTitle.ToLower()) == false)
             {
                 error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {SecondSubsubsectionTitle}.";
                 return false;
             }
 
-            if (section.Text.ToLower().Contains(ThirdSubsubsectionTitle.ToLower()) == false)
+            if (lowerSectionText.ToLower().Contains(ThirdSubsubsectionTitle.ToLower()) == false)
             {
                 error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {ThirdSubsubsectionTitle}.";
                 return false;
             }     
 
-            if (section.Text.ToLower().Contains(FourthSubsubsectionTitle.ToLower()) == false)
+            if (lowerSectionText.ToLower().Contains(FourthSubsubsectionTitle.ToLower()) == false)
             {
                 error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {FourthSubsubsectionTitle}.";
                 return false;
