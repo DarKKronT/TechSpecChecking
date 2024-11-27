@@ -4,7 +4,6 @@ using TechSpecChecking.Text.Analyzers.SectionAnalyzers.FirstSectionAnalyzers;
 using TechSpecChecking.Text.Analyzers.SectionAnalyzers.SecondSectionAnalyzers;
 using TechSpecChecking.Text.Analyzers.SectionAnalyzers.ThirdSectionAnalyzers;
 using TechSpecChecking.Text.Analyzers.SectionAnalyzers.FourthSectionAnalyzers;
-using TechSpecChecking.Text.Analyzers.SectionAnalyzers.FirstSectionAnalyzer;
 
 namespace TechSpecChecking.Text.Testers
 {

@@ -1,6 +1,6 @@
 using Files.Sections;
 
-namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.FirstSectionAnalyzer
+namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.FirstSectionAnalyzers
 {
     public sealed class FirstSectionLengthAnalyzer : ISectionAnalyzer
     {
