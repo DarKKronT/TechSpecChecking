@@ -1,6 +1,4 @@
-using TechSpecChecking.Text.Analyzers;
-
-namespace TechSpecChecking.Text.ReportCreators
+namespace TechSpecChecking.Text.Reports.ReportCreators
 {
     public interface IReportCreator
     {

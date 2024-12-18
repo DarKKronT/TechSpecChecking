@@ -2,7 +2,7 @@
 using TechSpecChecking.Files.Readers;
 using Files.Sections.Creators;
 using TechSpecChecking.Text.Testers;
-using TechSpecChecking.Text.ReportCreators;
+using TechSpecChecking.Text.Reports.ReportCreators;
 
 namespace TechSpecChecking
 {
