@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechSpecChecking", "TechSpe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mens", "..\..\..\..\..\VS\Mens\Mens.csproj", "{F33BB7A4-4C75-4B7F-BABC-9D35556CBB5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TF-IDF", "..\TF-IDF\TF-IDF.csproj", "{A61B074F-7AD7-4123-B630-379BADE72052}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TF-IDF-Test", "..\TF-IDF-Test\TF-IDF-Test.csproj", "{0B0AA29D-BAEE-4B66-8D6E-932E545F8366}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{F33BB7A4-4C75-4B7F-BABC-9D35556CBB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F33BB7A4-4C75-4B7F-BABC-9D35556CBB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F33BB7A4-4C75-4B7F-BABC-9D35556CBB5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A61B074F-7AD7-4123-B630-379BADE72052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A61B074F-7AD7-4123-B630-379BADE72052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A61B074F-7AD7-4123-B630-379BADE72052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A61B074F-7AD7-4123-B630-379BADE72052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B0AA29D-BAEE-4B66-8D6E-932E545F8366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B0AA29D-BAEE-4B66-8D6E-932E545F8366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B0AA29D-BAEE-4B66-8D6E-932E545F8366}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B0AA29D-BAEE-4B66-8D6E-932E545F8366}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
