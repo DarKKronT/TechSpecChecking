@@ -1,4 +1,3 @@
-using TechSpecChecking.Text.Analyzers;
 using TechSpecChecking.Text.Analyzers.TextAnalyzers;
 
 namespace TechSpecChecking.Text.Testers
@@ -11,10 +10,6 @@ namespace TechSpecChecking.Text.Testers
 
         public (IEnumerable<string> analyzerNames, IEnumerable<bool> results, IEnumerable<string> errors) Test()
         {
-            System.Console.WriteLine();
-            System.Console.WriteLine("=== TEXT ANALYZERS ===");
-            System.Console.WriteLine();
-
             var textAnalyzers = new ITextAnalyzer[]
             {
                 new SectionsPresenceAnalyzer(),

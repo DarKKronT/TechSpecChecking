@@ -3,6 +3,7 @@ using TechSpecChecking.Files.Readers;
 using Files.Sections.Creators;
 using TechSpecChecking.Text.Testers;
 using TechSpecChecking.Text.Reports.ReportCreators;
+using TechSpecChecking.Text.Reports.ReportWriters;
 
 namespace TechSpecChecking
 {
@@ -45,8 +46,15 @@ namespace TechSpecChecking
             var (sectionAnalyzers, sectionResults, sectionErrors) = sectionTesterResult;
 
             var defaultReportCreator = new DefaultReportCreator();
-            System.Console.WriteLine(defaultReportCreator.Create(textAnalyzers, textResults, textErrors));
-            System.Console.WriteLine(defaultReportCreator.Create(sectionAnalyzers, sectionResults, sectionErrors));
+            var textReportLines = defaultReportCreator.Create(textAnalyzers, textResults, textErrors);
+            var sectionReportLines = defaultReportCreator.Create(sectionAnalyzers, sectionResults, sectionErrors);
+
+            var report = new List<string>();
+
+            report.AddRange(textReportLines);
+            report.AddRange(sectionReportLines);
+            
+            new TxtReportWriter(reportPath).Write(report);
         }
     }
 }
