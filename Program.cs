@@ -24,7 +24,8 @@ namespace TechSpecChecking
 
 
 
-            var reportPath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\Report.txt";
+            var reportPath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\Reports";
+            var reportName = "Report";
 
             var readerFactory = new ReaderFactory(filePath);
             var reader = readerFactory.GetReader();
@@ -54,7 +55,8 @@ namespace TechSpecChecking
             report.AddRange(textReportLines);
             report.AddRange(sectionReportLines);
             
-            new TxtReportWriter(reportPath).Write(report);
+            new TxtReportWriter(reportPath, reportName).Write(report);
+            new WordReportWriter(reportPath, reportName).Write(report);
         }
     }
 }

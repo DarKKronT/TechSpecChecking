@@ -3,12 +3,21 @@ namespace TechSpecChecking.Text.Reports.ReportWriters
     public sealed class TxtReportWriter : IReportWriter
     {
         private readonly string _filePath;
+        private readonly string _fileName;
 
-        public TxtReportWriter(string filePath) => _filePath = filePath;
+        private const string TxtExtension = ".txt";
+
+        public TxtReportWriter(string filePath, string fileName)
+        {
+            _filePath = filePath;
+            _fileName = fileName;
+        }
 
         public void Write(IEnumerable<string> reportLines)
         {
-            using (var writer = new StreamWriter(_filePath))
+            var path = _filePath + "\\" + _fileName + TxtExtension;
+            
+            using (var writer = new StreamWriter(path))
             {
                 writer.WriteLine("REPORT");
                 writer.WriteLine("================");
