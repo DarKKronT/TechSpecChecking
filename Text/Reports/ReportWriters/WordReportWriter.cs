@@ -9,6 +9,9 @@ namespace TechSpecChecking.Text.Reports.ReportWriters
         private readonly string _filePath;
         private readonly string _fileName;
 
+        private const string RunFontsAscii = "Times New Roman";
+        private const string FontSizeVal = "28";
+
         private const string DocxExtension = ".docx";
 
         public WordReportWriter(string filePath, string fileName)
@@ -28,12 +31,12 @@ namespace TechSpecChecking.Text.Reports.ReportWriters
                 var body = mainPart.Document.AppendChild(new Body());
 
                 var headerRun = new Run(
-                    new RunProperties(new RunFonts() { Ascii = "Times New Roman" }, new FontSize() { Val = "28" }),
+                    new RunProperties(new RunFonts() { Ascii = RunFontsAscii }, new FontSize() { Val = FontSizeVal }),
                     new DocumentFormat.OpenXml.Wordprocessing.Text("REPORT"));
                 var headerParagraph = new Paragraph(headerRun);
 
                 var separatorRun = new Run(
-                    new RunProperties(new RunFonts() { Ascii = "Times New Roman" }, new FontSize() { Val = "28" }),
+                    new RunProperties(new RunFonts() { Ascii = RunFontsAscii }, new FontSize() { Val = FontSizeVal }),
                     new DocumentFormat.OpenXml.Wordprocessing.Text("================"));
                 var separatorParagraph = new Paragraph(separatorRun);
 
@@ -43,7 +46,7 @@ namespace TechSpecChecking.Text.Reports.ReportWriters
                 foreach (var line in reportLines)
                 {
                     var run = new Run(
-                        new RunProperties(new RunFonts() { Ascii = "Times New Roman" }, new FontSize() { Val = "28" }),
+                        new RunProperties(new RunFonts() { Ascii = RunFontsAscii }, new FontSize() { Val = FontSizeVal }),
                         new DocumentFormat.OpenXml.Wordprocessing.Text(line));
 
                     var paragraph = new Paragraph(run);
