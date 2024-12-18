@@ -1,9 +1,9 @@
-using TechSpecChecking.Text.Analyzers.SectionAnalyzers;
+using TechSpecChecking.Text.Analyzers;
 
 namespace TechSpecChecking.Text.ReportCreators
 {
     public interface IReportCreator
     {
-        string Create(IEnumerable<ISectionAnalyzer> sectionAnalyzers, IEnumerable<bool> results, IEnumerable<string> errors);
+        string Create(IEnumerable<string> analyzerNames, IEnumerable<bool> results, IEnumerable<string> errors);
     }
 }

@@ -6,10 +6,11 @@ using TechSpecChecking.Text.Analyzers.SectionAnalyzers.ThirdSectionAnalyzers;
 using TechSpecChecking.Text.Analyzers.SectionAnalyzers.FourthSectionAnalyzers;
 using TechSpecChecking.Text.Analyzers.SectionAnalyzers.FifthSectionAnalyzers;
 using TechSpecChecking.Text.Analyzers.SectionAnalyzers.SixthSectionAnalyzers;
+using TechSpecChecking.Text.Analyzers;
 
 namespace TechSpecChecking.Text.Testers
 {
-    public sealed class SectionTester : Tester
+    public sealed class SectionTester : ITester
     {
         private readonly ISection[] _sections;
         private readonly byte[] Indexes =
@@ -31,7 +32,7 @@ namespace TechSpecChecking.Text.Testers
 
         public SectionTester(ISection[] sections) => _sections = sections;
 
-        public override void Test()
+        public (IEnumerable<string> analyzerNames, IEnumerable<bool> results, IEnumerable<string> errors) Test()
         {
             if (RequiredSections.MainSections.Length != Indexes.Length)
                 throw new InvalidOperationException("Length of RequiredSections.MainSections does not match Indexes length.");
@@ -61,15 +62,20 @@ namespace TechSpecChecking.Text.Testers
                 (_sections[SixthSectionIndex], new SixthSectionLengthAnalyzer())
             };
 
-            System.Console.WriteLine();
-            System.Console.WriteLine("=== SECTION ANALYZERS ===");
-            System.Console.WriteLine();
+            var analyzerNames = new List<string>();
+            var results = new List<bool>();
+            var errors = new List<string>();            
 
             foreach (var (section, analyzer) in analyzers)
             {
                 var result = analyzer.Analyze(section, out string error);
-                PrintAnalyzerResult(analyzer, result, error);
-            }            
+                
+                analyzerNames.Add(analyzer.Name);
+                results.Add(result);
+                errors.Add(error);
+            }
+
+            return (analyzerNames, results, errors);        
         }
     }
 }

@@ -2,6 +2,7 @@
 using TechSpecChecking.Files.Readers;
 using Files.Sections.Creators;
 using TechSpecChecking.Text.Testers;
+using TechSpecChecking.Text.ReportCreators;
 
 namespace TechSpecChecking
 {
@@ -20,6 +21,10 @@ namespace TechSpecChecking
 
             var filePath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\КП-21_Антонов_Євгеній_Технічне_завдання.docx";
 
+
+
+            var reportPath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\Report.txt";
+
             var readerFactory = new ReaderFactory(filePath);
             var reader = readerFactory.GetReader();
 
@@ -33,21 +38,15 @@ namespace TechSpecChecking
             var sectionCreator = new SectionCreator();
             var sections = sectionCreator.GetSections(textAfterContent);
 
-            new TextTester(text).Test();
-            new SectionTester(sections.ToArray()).Test();
+            var textTesterResult = new TextTester(text).Test();
+            var sectionTesterResult = new SectionTester(sections.ToArray()).Test();
 
-            // Статистика аналізу:
-            // Підрахунок кількості слів у кожному розділі.
-            // Генерація звіту, який покаже детальні результати перевірки.
+            var (textAnalyzers, textResults, textErrors) = textTesterResult;
+            var (sectionAnalyzers, sectionResults, sectionErrors) = sectionTesterResult;
 
-            // Робота з таблицями та зображеннями:
-            // Перевірка наявності таблиць/зображень у відповідних розділах і їхнього правильного опису (наприклад, підписи до таблиць).
-            
-            // Генерація рекомендацій:
-            // Якщо розділ не відповідає вимогам, не лише повертати помилку, а й пропонувати рекомендації, як це виправити.
-            
-            // Масштабованість:
-            // Забезпечити підтримку роботи з багатомовними документами (наприклад, англійською).
+            var defaultReportCreator = new DefaultReportCreator();
+            System.Console.WriteLine(defaultReportCreator.Create(textAnalyzers, textResults, textErrors));
+            System.Console.WriteLine(defaultReportCreator.Create(sectionAnalyzers, sectionResults, sectionErrors));
         }
     }
 }
