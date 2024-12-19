@@ -40,6 +40,15 @@ namespace TechSpecChecking
             var sectionCreator = new SectionCreator();
             var sections = sectionCreator.GetSections(textAfterContent);
 
+            // foreach (var section in sections)
+            // {
+            //     System.Console.WriteLine("=========================");
+            //     System.Console.WriteLine(section.Text);
+            //     System.Console.WriteLine("=========================");
+            // }
+            
+            //System.Console.WriteLine(sections.ToArray()[3].Text);
+
             var textTesterResult = new TextTester(text).Test();
             var sectionTesterResult = new SectionTester(sections.ToArray()).Test();
 

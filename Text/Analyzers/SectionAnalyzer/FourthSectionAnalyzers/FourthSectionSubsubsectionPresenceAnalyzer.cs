@@ -4,10 +4,10 @@ namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.FourthSectionAnalyzer
 {
     public sealed class FourthSectionSubsubsectionPresenceAnalyzer : ISectionAnalyzer
     {
-        private const string FirstSubsubsectionTitle = "Загальний опис";
-        private const string SecondSubsubsectionTitle = "Функціональні вимоги";
-        private const string ThirdSubsubsectionTitle = "Інтерфейс користувача";
-        private const string FourthSubsubsectionTitle = "Нефункціональні вимоги";
+        private const string FirstSubsubsectionTitle = "Функціональні вимоги";
+        private const string SecondSubsubsectionTitle = "Нефункціональні вимоги";
+        private const string ThirdFirstSubsubsectionTitle = "Інтерфейс користувача";
+        private const string ThirdSecondSubsubsectionTitle = "Користувацький інтерфейс";
 
         public string Name => "Fourth section subsubsection presence analyzer";
 
@@ -28,17 +28,12 @@ namespace TechSpecChecking.Text.Analyzers.SectionAnalyzers.FourthSectionAnalyzer
                 return false;
             }
 
-            if (lowerSectionText.ToLower().Contains(ThirdSubsubsectionTitle.ToLower()) == false)
+            if (lowerSectionText.ToLower().Contains(ThirdFirstSubsubsectionTitle.ToLower()) == false &&
+                lowerSectionText.ToLower().Contains(ThirdSecondSubsubsectionTitle.ToLower()) == false)
             {
-                error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {ThirdSubsubsectionTitle}.";
+                error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {ThirdFirstSubsubsectionTitle} or {ThirdSecondSubsubsectionTitle}.";
                 return false;
             }     
-
-            if (lowerSectionText.ToLower().Contains(FourthSubsubsectionTitle.ToLower()) == false)
-            {
-                error = $"{RequiredSections.FourthSectionTitle} does not contain subsubsection title {FourthSubsubsectionTitle}.";
-                return false;
-            }         
 
             return true;
         }
