@@ -50,11 +50,9 @@ namespace TechSpecChecking.Text.Testers
                 (_sections[ThirdSectionIndex], new ThirdSectionLengthAnalyzer()),
 
                 (_sections[FourthSectionIndex], new FourthSectionSubsectionPresenceAnalyzer()),
-                (_sections[FourthSectionIndex], new FourthSectionSubsubsectionPresenceAnalyzer()),
                 (_sections[FourthSectionIndex], new FourthSectionFirstSubsectionContentAnalyzer()),
                 (_sections[FourthSectionIndex], new FourthSectionSecondSubsectionContentAnalyzer()),
-                (_sections[FourthSectionIndex], new FourthSectionThirdSubsectionContentAnalyzer()),
-
+                
                 (_sections[FifthSectionIndex], new FifthSectionSubsectionPresenceAnalyzer()),
                 (_sections[FifthSectionIndex], new FifthSectionLengthAnalyzer()),
 

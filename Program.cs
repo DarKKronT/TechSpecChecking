@@ -46,7 +46,7 @@ namespace TechSpecChecking
             //     System.Console.WriteLine(section.Text);
             //     System.Console.WriteLine("=========================");
             // }
-            
+
             //System.Console.WriteLine(sections.ToArray()[3].Text);
 
             var textTesterResult = new TextTester(text).Test();
