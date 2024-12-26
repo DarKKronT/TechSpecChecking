@@ -20,7 +20,7 @@ namespace TechSpecChecking
 
             //var filePath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\TestDocs\\ТЗ шаблон for tests.docx";
 
-            var filePath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\КП-21_Антонов_Євгеній_Технічне_завдання.docx";
+            var filePath = "D:\\KPI\\3\\sem 1\\COURSEWORK\\Docs\\TestDocs\\TechnicalSpecification.docx";
 
             System.Console.WriteLine("Welcome to TechSpecChecking!");            
             var directories = filePath.Split("\\");
@@ -65,7 +65,7 @@ namespace TechSpecChecking
             new TxtReportWriter(reportPath, reportName).Write(report);
             new WordReportWriter(reportPath, reportName).Write(report);
 
-            System.Console.WriteLine("- Analysis of the technical specifications;");
+            System.Console.WriteLine("- Analysis of the technical specification;");
             System.Console.WriteLine("- Generation of reports;");
             System.Console.WriteLine();
             System.Console.WriteLine("Was completed successfully.");
